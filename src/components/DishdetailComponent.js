@@ -1,22 +1,30 @@
 import React from 'react';
-import { Media, Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
-import { COMMENTS } from '../shared/comments';
-
-const comments = COMMENTS;
+import { Media, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 function RenderDish({dish}) {
   if (dish != null) {
     return(
-      <div className="row">
-        <Card className="col-12 col-md-5">
-          <CardImg img="100%" src={dish.image} alt={dish.name}/>
-          <CardBody>
-            <CardTitle><h3>{dish.name}</h3></CardTitle>
-            <CardText>{dish.description}</CardText>
-          </CardBody>
-        </Card>
-        <RenderComments />
-      </div>
+      <div className="container">
+        <div className="row">
+            <Breadcrumb>
+                <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
+                <BreadcrumbItem active>{dish.name}</BreadcrumbItem>
+            </Breadcrumb>
+            <div className="col-12">
+                <h3>{dish.name}</h3>
+                <hr />
+            </div>
+        </div>
+        <div className="row">
+            <div className="col-12 col-md-5 m-1">
+                <RenderDish dish={dish} />
+            </div>
+            <div className="col-12 col-md-5 m-1">
+                <RenderComments comments={dish.comments} />
+            </div>
+        </div>
+        </div>
     );
   }
   else {
@@ -26,7 +34,7 @@ function RenderDish({dish}) {
   }
 }
 
-function RenderComments(){
+function RenderComments(comments){
   const dishComments = comments.map((comment) => {
     return(
       <Media tag="li" key={comment.id}>
