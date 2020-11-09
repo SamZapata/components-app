@@ -68,35 +68,34 @@ class Contact extends Component {
               <div className="col-12 col-md-9">
                 <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                   <Row className="form-group">
-                      <Label htmlFor="firstname" md={2}>First Name</Label>
-                      <Col md={10}>
-                          <Control.text model=".firstname" id="firstname" name="firstname"
-                              placeholder="First Name"
-                              className="form-control"
-                              validators={{
-                                required, minLength: minLength(3), maxLength: maxLength(15)
-                              }}/>
-                              <Errors
-                                className="text-danger"
-                                model=".firstname"
-                                show="touched"
-                                messages={{
-                                  required: 'Required',
-                                  minLength: 'Must be greater than 2 characters',
-                                  maxLength: 'Must be 15 characters or less'
-                                }} />
-                      </Col>
-                  </Row>
+                    <Label htmlFor="firstname" md={2}>First Name</Label>
+                    <Col md={10}>
+                        <Control.text model=".firstname" id="firstname" name="firstname"
+                          placeholder="First Name"
+                          className="form-control"
+                          validators={{
+                            required, minLength: minLength(3), maxLength: maxLength(15)
+                          }}/>
+                        <Errors
+                          className="text-danger"
+                          model=".firstname"
+                          show="touched"
+                          messages={{
+                            required: 'Required',
+                            minLength: 'Must be greater than 2 characters',
+                            maxLength: 'Must be 15 characters or less'
+                          }} />
+                    </Col>
+                </Row>
                   <Row className="form-group">
                       <Label htmlFor="lastname" md={2}>Last Name</Label>
                       <Col md={10}>
                           <Control.text model=".lastname" id="lastname" name="lastname"
-                              placeholder="Last Name"
-                              className="form-control"
-                              validators={{
-                                required, minLength: minLength(3), maxLength: maxLength(15)
-                              }}
-                               />
+                            placeholder="Last Name"
+                            className="form-control"
+                            validators={{
+                              required, minLength: minLength(3), maxLength: maxLength(15)
+                            }}/>
                            <Errors
                              className="text-danger"
                              model=".lastname"
@@ -171,8 +170,8 @@ class Contact extends Component {
                       <Label htmlFor="message" md={2}>Your Feedback</Label>
                       <Col md={10}>
                           <Control.textarea model=".message" id="message" name="message"
-                              rows="12"
-                              className="form-control" />
+                          rows="12"
+                          className="form-control" />
                       </Col>
                   </Row>
                   <Row className="form-group">

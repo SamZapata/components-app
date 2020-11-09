@@ -2,6 +2,7 @@ import React from 'react';
 import { Media, Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { COMMENTS } from '../shared/comments';
+import AddComment from './CommentForm';
 
 const comments = COMMENTS;
 
@@ -46,6 +47,7 @@ function RenderComments(){
         <ul className="list-unstyled">
           {dishComments}
         </ul>
+        <AddComment />
       </div>
     );
   }
