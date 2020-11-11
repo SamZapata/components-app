@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react';
 import { Button, Modal, ModalHeader, ModalFooter, ModalBody, Label, Col, Row } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
+// variables to make validations
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
