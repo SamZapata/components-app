@@ -1,5 +1,5 @@
-import React, { Component, useState } from 'react';
-import { Button, Modal, ModalHeader, ModalFooter, ModalBody, Label, Col, Row } from 'reactstrap';
+import React, { Component } from 'react';
+import { Button, Modal, ModalHeader, ModalBody, Label, Col, Row } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
 // variables to make validations
@@ -8,7 +8,7 @@ const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
 const isNumber = (val) => !isNaN(Number(val));
 
-class AddComment extends Component {
+class CommentForm extends Component {
   constructor(props) {
     super(props);
 
@@ -27,7 +27,7 @@ class AddComment extends Component {
   }
 
   handleSubmit(values) {
-    alert('Current State is: ' + JSON.stringify(values));
+    this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
   }
 
   render() {
@@ -95,4 +95,4 @@ class AddComment extends Component {
   }
 }
 
-export default AddComment;
+export default CommentForm;
