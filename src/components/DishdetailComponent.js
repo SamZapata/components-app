@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Media, Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, ModalBody, Label, Col, Row } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
+import { Loading } from './LoadingComponent';
 // import CommentForm from './CommentForm';
 
 function RenderDish({dish}) {
@@ -149,6 +150,24 @@ class CommentForm extends Component {
 // export default CommentForm;
 
 const DishDetail = (props) =>{
+  if (props.isLoading) {
+    return (
+      <div className="container">
+        <div className="row">
+          <Loading />
+        </div>
+      </div>
+    );
+  }
+  else if (props.errMess) {
+    return (
+      <div className="container">
+        <div className="row">
+          <h4>{props.errMess}</h4>
+        </div>
+      </div>
+    );
+  }
   return(
     <div className="container">
       <Breadcrumb>
