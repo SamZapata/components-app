@@ -3,13 +3,14 @@ import { Media, Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, Breadc
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 // import CommentForm from './CommentForm';
 
 function RenderDish({dish}) {
   if (dish != null) {
     return(
       <Card className="col-12 col-md-5">
-        <CardImg img="100%" src={dish.image} alt={dish.name}/>
+        <CardImg top src={baseUrl + dish.image} alt={dish.name} />
         <CardBody>
           <CardTitle><h3>{dish.name}</h3></CardTitle>
           <CardText>{dish.description}</CardText>
