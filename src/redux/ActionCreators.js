@@ -1,5 +1,4 @@
 import * as ActionTypes from './ActionTypes';
-// import { DISHES } from '../shared/dishes';
 import { baseUrl } from '../shared/baseUrl';
 
 export const addComment = (comment) => ({
@@ -147,23 +146,10 @@ export const addPromos = (promos) => ({
 });
 
 // load data for leaders
-export const addLeaders = (leaders) => ({
-  type: ActionTypes.ADD_LEADERS,
-  payload: leaders
-});
-
-export const leadersLoading = () => ({
-  type: ActionTypes.LEADERS_LOADING
-});
-
-export const leadersFailed = (errmess) => ({
-  type: ActionTypes.LEADERS_FAILED,
-  payload: errmess
-});
 
 export const fetchLeaders = () => (dispatch) => {
     
-  dispatch(leadersLoading());
+  dispatch(leadersLoading(true));
 
   return fetch(baseUrl + 'leaders')
     .then(response => {
@@ -183,3 +169,17 @@ export const fetchLeaders = () => (dispatch) => {
     .then(leaders => dispatch(addLeaders(leaders)))
     .catch(error => dispatch(leadersFailed(error.message)));
 }
+
+export const addLeaders = (leaders) => ({
+  type: ActionTypes.ADD_LEADERS,
+  payload: leaders
+});
+
+export const leadersLoading = () => ({
+  type: ActionTypes.LEADERS_LOADING
+});
+
+export const leadersFailed = (errmess) => ({
+  type: ActionTypes.LEADERS_FAILED,
+  payload: errmess
+});
