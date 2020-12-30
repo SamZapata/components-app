@@ -6,6 +6,8 @@ export const addComment = (comment) => ({
   payload: comment
 });
 
+// export const postFeedback = () => (dispatch) => {};
+
 export const postComment = (dishId, rating, author, comment) => (dispatch) => {
 
   const newComment = {
